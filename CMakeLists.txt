@@ -6,7 +6,7 @@ cmake_minimum_required (VERSION 3.8)
 project ("BoxGameTwo")
 
 # Добавьте источник в исполняемый файл этого проекта.
-add_executable (BoxGameTwo "BoxGameTwo.cpp" "BoxGameTwo.h" "Engine-shop.cpp")
+add_executable (BoxGameTwo "BoxGameTwo.cpp" "BoxGameTwo.h" "Engine-main.cpp" "Engine-main.cpp" )
 
 if (CMAKE_VERSION VERSION_GREATER 3.12)
   set_property(TARGET BoxGameTwo PROPERTY CXX_STANDARD 20)

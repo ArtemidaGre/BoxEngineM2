@@ -24,12 +24,14 @@ namespace Engine{
         std::string Description = "empty";
         std::string Name = "empty";
     public:
-        Item(char type = 'e', int effect = 0, std::string name = "empty") {
+        int Cost;
+        Item(char type = 'e', int effect = 0, std::string name = "empty", int cost = 0) {
             Type = type;
             Name = name;
             if (type != 's') {
                 Effect = effect;
             }
+            Cost = cost;
         }
         void Weapon(int effect, std::string name, std::string Des){
             Type = 'w';
@@ -79,7 +81,15 @@ namespace Engine{
             }
             return Inventory[Buffer];
         };
-        void AddItem(Item unit, int Place){if (Inventory[Place].GetType() != 's'){Inventory[Place] = unit;}};
+        int AddItem(Item unit){
+            for (int i = 0; i < MaxItems; i++) {
+                if (Inventory[i].GetType() != 's') {
+                    Inventory[i] = unit;
+                    return i;
+                }
+            }
+            return NULL;
+        };
     };
     class Player{
     private:
@@ -119,6 +129,7 @@ namespace Engine{
             else {}
         };
         bool IsAlive(){if (Hp>0){return true;}else{return false;}};
+        int WorkWithCoins(bool IsSetter = false, int setter = 0) { if (!IsSetter) { return Coins; } else { Coins += setter; } }
         void UseItem(Item item, Player player) { if (item.GetType() != 's') { if (item.GetType() == 'w') { player.AddDamage(item.GetEffect()); } if (item.GetType() == 'f') { player.AddHp(item.GetEffect()); } } }
     };
 };
