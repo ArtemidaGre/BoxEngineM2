@@ -29,7 +29,9 @@ void TestMode() {
 	Item testItem; testItem.Weapon(10, "weapon", "wipon");
 	player.inventory.AddItem(testItem, 1);
 	println(player.inventory.GetItems());
-
+	Item i1 = Item();
+	Item list[4] = { i1 };
+	Shop shop = Shop(list)
 }
 
 int main()

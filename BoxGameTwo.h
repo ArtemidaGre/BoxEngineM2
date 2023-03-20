@@ -6,4 +6,7 @@
 #include <iostream>
 #include "Engine-main.cpp"
 #include "Engine-shop.cpp"
-// TODO: установите здесь ссылки на дополнительные заголовки, требующиеся для программы.
+#include "living-objects.cpp"
+
+
+// TODO: DLL

@@ -4,6 +4,8 @@
 
 //using namespace std;
 
+#define TYPES_COUNT 5
+
 namespace Engine{
     class Enemy{
     public:
@@ -24,6 +26,7 @@ namespace Engine{
         std::string Description = "empty";
         std::string Name = "empty";
     public:
+        char ReadyTypes[TYPES_COUNT] = { 'w', 'f', 'a', 's', 'e' };
         int Cost;
         Item(char type = 'e', int effect = 0, std::string name = "empty", int cost = 0) {
             Type = type;
@@ -50,7 +53,11 @@ namespace Engine{
             Name = name;
         }
         std::string GetName(){return Name;};
-        char GetType(){return Type;};
+        char GetType() { return Type; }; void SetType(char type) {
+            for (int i = 0; i < TYPES_COUNT; i++) {
+                
+            }
+        };
         int GetEffect() { return Effect; }
     };
     class Inventory{
